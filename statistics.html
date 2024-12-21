@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Статистика</h2>
+    <p>Общее количество статей: {{ total_articles }}</p>
+    <p>Общее количество тегов: {{ total_categories }}</p>
+
+    <h4>Самый длинный заголовок</h4>
+    <p>{{ longest_title }}</p>
+
+    <h4>Дата с наибольшим количеством публикаций</h4>
+    <p>{{ most_popular_date.pub_date }}: {{ most_popular_date.article_count }} статей</p>
+
+    <h4>Топ-5 самых популярных тегов</h4>
+    <ul>
+        {% for tag in top_tags %}
+            <li>{{ tag.tag_name }}: {{ tag.tag_count }} использований</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
